@@ -1,4 +1,5 @@
 ---
+layout: default
 title: JadenCase-문자열-만들기
 parent: 프로그래머스
 nav_order: 1
