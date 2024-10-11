@@ -1,12 +1,10 @@
 ---
 layout: post
-title: JadenCase-문자열-만들기
+title: JadenCase 문자열 만들기
 parent: 코딩 테스트 공부
 nav_order: 1
 date: 2024-10-12
 ---
-
-# JadenCase 문자열 만들기
 
 문제 링크 : [https://school.programmers.co.kr/learn/courses/30/lessons/12951]
 
