@@ -113,4 +113,46 @@ class Solution {
 어떻게든 풀기는 했지만, 현재의 접근 방식은 다소 효율적이지 못한 것 같다는 느낌을 받았다.  
 문자열을 추가하는 다루는 과정을 효율적으로 처리할 수 있는 다른 방법을 알아보기 위해, 다른 사람들의 소스 코드를 찾아봤다.
 
+다른 사람의 코드에서 혁신을 알 수 있었다.
+
+```java
+class Solution {
+  public String solution(String s) {
+        String answer = "";
+        String[] sp = s.toLowerCase().split("");
+        boolean flag = true;
+
+        for(String ss : sp) {
+            answer += flag ? ss.toUpperCase() : ss;
+            flag = ss.equals(" ") ? true : false;
+        }
+
+        return answer;
+  }
+}
+```
+
+1. 어차피 대문자로 바꿔야 하니까, 소문자로 변경하고 split으로 나눈다. (여기서 공백을 기준으로 split이 아니라 그냥 모든 문자열을 split한다.)
+2. 이후 문자열을 돌면서 만약 공백이라면 true, 아니라면 false
+3. 공백인 경우에는, 대문자로 변경하고 추가한다. 아니라면 그냥 추가한다.
+
+여기서 의미하는 바는, 일단 처음에는 공백여부와 상관없이 대문자로 변경하고 넣는다.  
+어차피 공백이든 아니는 공백이면 그냥 대문자로 변환해서 넣으면 그냥 값이 되고, 공백이 아닌 경우에는 첫 글자이기 때문에 대문자로 변환을 해야 한다. 이후에는 현재 문자가 공백이 아닌 경우, 즉 현재 문자인 경우는 다음에는 대문자 변환이 필요 없기 때문에, false로 변경한다.
+
+즉, 공백을 대문자로 치환해야 할 대상으로 보고 로직을 작성하는 것이 핵심이다.
+
+예를 들어서 `3pens is gone` 이라는 문자열이 주어진다면  
+처음에는 무조건 대문자로 치환한다. 이후 공백이 아니기 때문에 `flag가 false로 변경` 되고, pens도 소문자 그대로  
+그리고 공백이 나오지만, flag가 여전히 false이기 때문에 그냥 추가  
+이후 공백이기 때문에 flag는 true로 변경, 변경된 flag 덕분에 다시 대문자로 변환
+이렇게 계속 이어지면  
+`3pens Is Gone`이라는 결과가 도출 된다.
+
+## 알게 된 점
+
+오늘 풀이로 알게 된 점이 두 가지가 있다.
+
+1. 문자열을 `""`으로 split 하는 경우, 그 대로 문자열 배열이 생성되어 한 문자별로 비교가 가능하다는 것
+2. 공백과 숫자 모두 소문자, 대문자 변환이 먹힌다는 것
+
 [https://school.programmers.co.kr/learn/courses/30/lessons/12951]: https://school.programmers.co.kr/learn/courses/30/lessons/12951
