@@ -5,8 +5,11 @@ theme: just-the-docs
 search_enabled: true
 
 color_sheme: dark
+google_analytics: G-VVX12S13VM
 
 url: https://cutepassions.github.io
+
+footer_content: ""
 
 aux_links:
   Github: https://github.com/cutepassions

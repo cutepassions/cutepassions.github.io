@@ -1,0 +1,41 @@
+<div id="visitor-count">
+  현재 페이지 방문자 수: <span id="page-views">로딩 중...</span><br />
+  총 방문자 수: <span id="total-views">로딩 중...</span>
+</div>
+
+<script>
+  (function () {
+    var ga = document.createElement("script");
+    ga.type = "text/javascript";
+    ga.async = true;
+    ga.src = "https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(ga, s);
+  })();
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "{{ site.google_analytics }}");
+
+  // 페이지 뷰 카운트 가져오기
+  function getPageViews() {
+    gtag("get", "{{ site.google_analytics }}", "page_view", function (pageview) {
+      document.getElementById("page-views").textContent = pageview;
+    });
+  }
+
+  // 총 방문자 수 가져오기 (예시 - 실제로는 Google Analytics API를 사용해야 함)
+  function getTotalViews() {
+    // 이 부분은 예시일 뿐이며, 실제 구현에는 Google Analytics API를 사용해야 합니다.
+    document.getElementById("total-views").textContent = "API 연동 필요";
+  }
+
+  // 페이지 로드 시 실행
+  window.onload = function () {
+    getPageViews();
+    getTotalViews();
+  };
+</script>
