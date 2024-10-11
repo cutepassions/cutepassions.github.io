@@ -104,7 +104,7 @@ class Solution {
 
 ### 결과 이미지
 
-![alt text](image.png)
+![alt text](./image.png)
 
 결과는 위와 같이 통과 되었다.
 
