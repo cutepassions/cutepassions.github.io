@@ -1,6 +1,9 @@
 title: 이것 저것
 description: 이것 저것 적는 블로그입니다.
 theme: just-the-docs
+
+search_enabled: true
+
 color_sheme: dark
 
 url: https://cutepassions.github.io
