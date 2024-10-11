@@ -1,11 +1,13 @@
 ---
-layout: default
+layout: post
 title: JadenCase-문자열-만들기
 parent: 코딩 테스트 공부
 nav_order: 1
 ---
 
 # JadenCase 문자열 만들기
+
+문제 링크 : [https://school.programmers.co.kr/learn/courses/30/lessons/12951]
 
 ## 문제에 대한 내용
 
@@ -111,3 +113,5 @@ class Solution {
 
 어떻게든 풀기는 했지만, 현재의 접근 방식은 다소 효율적이지 못한 것 같다는 느낌을 받았다.  
 문자열을 추가하는 다루는 과정을 효율적으로 처리할 수 있는 다른 방법을 알아보기 위해, 다른 사람들의 소스 코드를 찾아봤다.
+
+[https://school.programmers.co.kr/learn/courses/30/lessons/12951]: https://school.programmers.co.kr/learn/courses/30/lessons/12951
