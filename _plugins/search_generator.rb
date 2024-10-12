@@ -1,5 +1,6 @@
 require 'json'
 require 'nokogiri'
+require 'fileutils'
 
 module Jekyll
   class SearchIndexGenerator < Generator
@@ -22,6 +23,9 @@ module Jekyll
         }
         index << item
       end
+
+      # Ensure the directory exists
+      FileUtils.mkdir_p(File.join(site.dest))
 
       File.open(File.join(site.dest, 'search.json'), 'w') do |file|
         file.write(JSON.pretty_generate(index))
