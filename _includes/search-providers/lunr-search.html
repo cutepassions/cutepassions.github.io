@@ -1,0 +1,42 @@
+<script src="{{ '/assets/js/lunr.min.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/lunr.stemmer.support.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/lunr.ko.js' | relative_url }}"></script>
+<script>
+  lunr.tokenizer.separator = /[\s\-/]+/;
+
+  var idx = lunr(function () {
+    this.use(lunr.ko);
+    this.ref("url");
+    this.field("title", { boost: 10 });
+    this.field("content");
+
+    fetch('{{ "/search.json" | relative_url }}')
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((doc) => {
+          this.add(doc);
+        });
+      });
+  });
+
+  document.querySelector("#search-input").addEventListener("input", function () {
+    var query = this.value;
+    var results = idx.search(query);
+    displaySearchResults(results);
+  });
+
+  function displaySearchResults(results) {
+    var searchResults = document.querySelector("#search-results");
+    searchResults.innerHTML = "";
+
+    if (results.length) {
+      results.forEach((result) => {
+        var item = document.createElement("li");
+        item.innerHTML = `<a href="${result.ref}">${result.ref}</a>`;
+        searchResults.appendChild(item);
+      });
+    } else {
+      searchResults.innerHTML = "<li>No results found</li>";
+    }
+  }
+</script>
