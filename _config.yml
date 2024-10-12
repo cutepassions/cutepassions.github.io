@@ -3,8 +3,9 @@ description: 이것 저것 적는 블로그입니다.
 theme: just-the-docs
 
 search_enabled: true
+search.tokenizer_separator: /[\s/]+/
 
-color_sheme: dark
+# color_scheme: dark
 google_analytics: G-VVX12S13VM
 permalink: pretty
 

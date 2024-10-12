@@ -1,4 +1,4 @@
 package-lock.json
 _site
-assets/js/lunr.min.js
-assets/js/lunr.*.min.js
+assets/js/vendor/lunr.min.js
+assets/js/vendor/lunr.*.min.js
