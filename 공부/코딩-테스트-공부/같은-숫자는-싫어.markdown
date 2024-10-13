@@ -33,22 +33,86 @@ arr answer
 
 ## 접근 방식
 
-### 잘못된 접근
+1. 전체 숫자가 중복되어도 상관 없다.
+2. 따라서 set이 아니라 이전 숫자와 겹치는지 여부만 판단
 
-### 잘못 된 접근2
+- 겹치면 추가 X
+- 겹치지지 않으면 추가 O
 
-### 잘 된 접근
+3. 결과 return
 
 ## 결과
 
 ### 소스 코드
 
 ```java
+import java.util.*;
 
+public class Solution {
+    public int[] solution(int []arr) {
+
+        List<Integer> list = new ArrayList<>();
+
+        int tmp = -1;
+        for (int a:arr){
+            if (tmp != a) list.add(a);
+            tmp = a;
+        }
+        return list.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
 ```
 
 ### 결과 이미지
 
+![alt text](/공부/코딩-테스트-공부/image-1.png)
+
 ## 다른 접근 방식
 
+다른 사람들의 소스 코드를 살펴 보니, 대부분 비슷한 방식으로 풀었다.  
+그 중에서 다른 방식은
+
+1. return 타입을 변경해서, 변환하지 않고 return
+2. String 타입으로 변환해서, split으로 사이즈를 구해서 int 배열의 크기를 구해서 int 배열에 값을 집어넣기
+
+이 중에서 2번의 경우는 내가 생각해보지 못했던 방법이라서 자세히 알아봤다.
+
+### 코드
+
+```java
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int []arr) {
+        StringBuilder sb = new StringBuilder();
+        int size = arr.length;
+        sb.append(arr[0]);
+        for(int i=1; i<size; i++){
+            if(arr[i-1]!=arr[i]) sb.append(arr[i]);
+        }
+        String[] array = sb.toString().split("");
+        size = array.length;
+        int[] answer = new int[size];
+        for(int i=0; i<size; i++){
+            answer[i] = Integer.parseInt(array[i]);
+        }
+        return answer;
+    }
+}
+```
+
+코드를 라인별로 분석해보면,
+
+1. StringBuilder 객체 생성 및 초기화
+2. StringBuilder에 객체의 0번 인덱스 넣기
+3. for문을 돌면서 이전 인덱스와 비교해서 다른 경우에만 StringBuilder에 넣기
+4. split을 통해 배열로 변경
+5. 배열의 크기를 구해서 return 할 새로운 배열 생성
+6. for문을 통해 새로운 배열과 String 배열의 값을 인덱스 별로 일치시키기
+
 ## 알게 된 점
+
+일반적으로 크기를 유연하게 관리하기 위해서는 리스트를 사용한다.  
+하지만, String으로 전환하면서 크기를 구하고 배열로 리턴할 수 있다는 사실이 접근이 새로운 것 같다.
+
+그리고 사실, Java의 Stream API는 편의 + 간결성에 장점이 있는 것이기 때문에, 배열 혹은 리스트에서 값을 꺼내 새로운 배열로 리턴하는 것이 훨씬 효율적이다.
