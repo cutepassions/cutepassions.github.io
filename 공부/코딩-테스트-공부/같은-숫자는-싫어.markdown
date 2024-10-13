@@ -58,7 +58,7 @@ public class Solution {
             if (tmp != a) list.add(a);
             tmp = a;
         }
-        return list.stream().mapToInt(Integer::intValue).toArray();
+        return list.stream().mapToInt(i->i).toArray();
     }
 }
 ```
