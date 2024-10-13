@@ -1,7 +1,7 @@
 ---
 layout: post
-title:
-parent:
+title: 같은 숫자는 싫어
+parent: 코딩 테스트 공부
 nav_order: 1
 date: 2024-10-13
 ---
