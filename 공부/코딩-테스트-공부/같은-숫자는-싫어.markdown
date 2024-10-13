@@ -6,7 +6,7 @@ nav_order: 1
 date: 2024-10-13
 ---
 
-문제 링크 : []()
+문제 링크 : [https://school.programmers.co.kr/learn/courses/30/lessons/12906]
 
 ## 문제에 대한 내용
 
@@ -27,9 +27,10 @@ date: 2024-10-13
 
 ### 입출력 예
 
-arr answer
-[1,1,3,3,0,1,1] [1,3,0,1]
-[4,4,4,3,3] [4,3]
+| arr             | answer    |
+| --------------- | --------- |
+| [1,1,3,3,0,1,1] | [1,3,0,1] |
+| [4,4,4,3,3]     | [4,3]     |
 
 ## 접근 방식
 
@@ -116,3 +117,5 @@ public class Solution {
 하지만, String으로 전환하면서 크기를 구하고 배열로 리턴할 수 있다는 사실이 접근이 새로운 것 같다.
 
 그리고 사실, Java의 Stream API는 편의 + 간결성에 장점이 있는 것이기 때문에, 배열 혹은 리스트에서 값을 꺼내 새로운 배열로 리턴하는 것이 훨씬 효율적이다.
+
+[https://school.programmers.co.kr/learn/courses/30/lessons/12906]: https://school.programmers.co.kr/learn/courses/30/lessons/12906
