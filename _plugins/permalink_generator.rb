@@ -10,10 +10,13 @@ module Jekyll
           
           # 파일의 디렉토리와 이름을 분리합니다.
           dir = File.dirname(relative_path)
-          basename_without_ext = File.basename(page.path, page.ext)
 
-          # permalink를 설정합니다.
-          permalink = File.join(dir, basename_without_ext).gsub("\\", "/")
+          # 디렉토리 내 md 파일 개수를 세기
+          abs_dir_path = File.join(site.source, dir)
+          md_count = Dir.glob(File.join(abs_dir_path, "*.md")).size
+
+          # permalink를 설정합니다: md_count + 1
+          permalink = File.join(dir, (md_count + 1).to_s).gsub("\\", "/")
 
           # 설정된 값을 페이지 데이터에 추가합니다.
           page.data["permalink"] = permalink
