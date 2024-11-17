@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 알고리즘 공부
+title: 알고리즘 공부2
 nav_order: 2
 has_children: true
 ---
