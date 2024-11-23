@@ -2,8 +2,10 @@ title: 이것 저것
 description: 이것 저것 적는 블로그입니다.
 theme: just-the-docs
 
-search_enabled: true
-search.tokenizer_separator: /[\s/]+/
+search:
+  enabled: true
+  placeholder: "검색어를 입력하세요."
+  tokinizer_separator: /[\s/]+/
 
 # color_scheme: dark
 google_analytics: G-VVX12S13VM
