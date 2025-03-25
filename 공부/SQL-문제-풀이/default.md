@@ -1,10 +1,8 @@
 ---
 layout: post
-title: SQL 기본 문법
-parent:
-date: 2024-10-26
-permalink:
-nav_order: 2
+title: SQL 문제 풀이
+nav_order: 1
+has_child: true
 ---
 
 ## 취지
